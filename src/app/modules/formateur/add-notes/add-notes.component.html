@@ -1,0 +1,41 @@
+<!-- attribuer-note-evaluation.component.html -->
+
+<div class="alert alert-primary text-center p-3" role="alert">
+    Ajout de notes
+</div>
+
+<div class="secondCard m-5">
+    <div class="sectionNotes m-5">
+        <h4 class="mt-5 p-2">Attribuer des Notes</h4>
+        <form>
+            <label class="mt-4 fs-4" for="evaluation">Évaluation :</label>&nbsp; &nbsp;
+            <select id="evaluation" name="evaluationSelect6" required [(ngModel)]="selectedEvaluationId"
+                (change)="onSelectEvaluation()">
+                <option *ngFor="let elementEvaluation of listeEvaluation" [value]="elementEvaluation.idEvaluation">
+                    {{elementEvaluation.idEvaluation}} - {{elementEvaluation.anneeAcademic}}
+                    -{{elementEvaluation.classe}} - {{elementEvaluation.matiere}} - {{elementEvaluation.type}} -
+                    {{elementEvaluation.date}}
+                </option>
+            </select>&nbsp; &nbsp;
+
+            <table class="mt-5">
+                <thead>
+                    <tr>
+                        <th>Apprenant</th>
+                        <th>Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let apprenant of listeApprenants">
+                        <td>{{ apprenant.prenom }} {{ apprenant.nom }}</td>
+                        <td>
+                            <input type="number" name="note1" [(ngModel)]="apprenant.note" required>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-primary mb-5 mt-5" (click)="attribuerNotes()">Attribuer les
+                Notes</button>
+        </form>
+    </div>
+</div>
