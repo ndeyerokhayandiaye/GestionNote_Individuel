@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
         title: 'erreur',
         text: 'Veilez remplir toutes les champs',
         icon: 'error'
+        
       })
     } 
     if (this.password == 'adminpassword' && this.mail == 'admin@gmail.com') {
